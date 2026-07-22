@@ -1,0 +1,246 @@
+{
+  "metadata": {
+    "title": "Miroslavo — Contemporary Abstract Art",
+    "description": "Original abstract paintings, limited edition prints, and commissions by Miroslav Stibůrek.",
+    "ogAlt": "Miroslavo — contemporary abstract art"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "menu": "Menu",
+    "close": "Close",
+    "mainNav": "Main navigation",
+    "mobileNav": "Mobile navigation",
+    "socialProof": "Social proof"
+  },
+  "nav": {
+    "availableWorks": "Works",
+    "exhibitions": "Exhibitions",
+    "design": "Design",
+    "blog": "Journal",
+    "practice": "Practice",
+    "about": "About",
+    "contact": "Contact",
+    "inquire": "Inquire"
+  },
+  "hero": {
+    "eyebrow": "Artist · Designer · Creative strategist",
+    "title": "Colour, gesture, and intuitive form.",
+    "description": "Miroslav Stibůrek creates contemporary art and design — and helps businesses grow through digital strategy and marketing at miros.digital.",
+    "ctaPrimary": "View works",
+    "ctaSecondary": "Inquire",
+    "featuredWork": "Dances with Chaos"
+  },
+  "art": {
+    "eyebrow": "Featured work",
+    "title": "Paintings",
+    "description": "Authorial abstract paintings developed through an intuitive approach to colour, gesture, and composition.",
+    "categories": {
+      "painting": "Painting",
+      "print": "Print"
+    },
+    "cta": {
+      "shop": "Available works",
+      "inquire": "Commission or inquire",
+      "design": "View design work"
+    },
+    "services": {
+      "eyebrow": "Also available",
+      "description": "Beyond original paintings — collaborations, editions, and live experiences for brands, spaces, and audiences.",
+      "inquire": "Inquire",
+      "contactCta": "Get in touch",
+      "items": {
+        "collaborations": {
+          "title": "Collaborations",
+          "description": "Creative partnerships with brands, organisations, and spaces — from co-created artworks to cultural projects and bespoke commissions.",
+          "imageAlt": "Oxcala life buoy installation by Miroslavo — Circle of Art",
+          "inquireSubject": "Collaboration inquiry"
+        },
+        "prints": {
+          "title": "Prints",
+          "description": "Limited edition prints of selected works — a way to collect the practice at a more accessible scale.",
+          "imageAlt": "Limited edition fine art prints by Miroslavo",
+          "inquireSubject": "Print inquiry"
+        },
+        "livePainting": {
+          "title": "Live painting",
+          "description": "Live painting performances and murals for events, launches, and public programmes — bringing the studio process to the audience.",
+          "imageAlt": "Miroslavo painting the Happy Love Day mural at NoHo House, Barcelona",
+          "inquireSubject": "Live painting inquiry"
+        },
+        "workshops": {
+          "title": "Workshops",
+          "description": "Creative workshops and studio sessions — intuitive painting, colour, and expression for groups, schools, and communities.",
+          "imageAlt": "Miroslavo creative workshop at Barcelona International Community Day",
+          "inquireSubject": "Workshop inquiry"
+        }
+      }
+    }
+  },
+  "practice": {
+    "eyebrow": "What I offer",
+    "title": "Art, design, and marketing",
+    "description": "Based in Europe, the studio works remotely and on selected projects worldwide — from original paintings and design commissions to digital strategy and marketing at miros.digital.",
+    "offerings": {
+      "art": {
+        "title": "Art",
+        "description": "At the core of the practice. Original painting collections, custom artworks for clients and spaces, limited edition prints, and exhibition work.",
+        "imageAlt": "Collectors with an original Miroslavo painting — contemporary abstract art",
+        "cta": "View works"
+      },
+      "design": {
+        "title": "Design",
+        "description": "Brand identities, product concepts, industrial design, graphic work, and visual systems — shaped by the same intuitive visual language as the paintings.",
+        "imageAlt": "Mall Pay credit card branding design by Miroslavo",
+        "cta": "View design"
+      },
+      "marketing": {
+        "title": "Marketing",
+        "description": "SEO, Google Ads, websites, and creative strategy for businesses — through miros.digital, the commercial practice for entrepreneurs and organisations.",
+        "imageAlt": "Marketing and digital strategy work by Miroslavo at miros.digital",
+        "cta": "Visit miros.digital"
+      }
+    }
+  },
+  "about": {
+    "eyebrow": "The artist",
+    "title": "Miroslav Stibůrek",
+    "quote": "True beauty and meaning lies in authenticity.",
+    "description": "Born in Benešov, Czech Republic, Miroslav Stibůrek — also known as Miroslavo — is a contemporary artist, designer, and creative strategist. Best known for expressive abstract paintings, his work explores movement, form, colour, and emotion through a distinctive visual language. Paintings are held in private collections across Czechia, Spain, Mexico, England, and the United States.",
+    "description2": "After living in Czechia and England, he settled in Barcelona in 2016, where painting remains at the centre of his practice. He has exhibited internationally — including a solo museum exhibition — and co-founded Miroslavo Art Gallery in 2024. Through colour, gesture, and playful symbolism, the work reflects themes of identity, aliveness, and the tension between structure and freedom.",
+    "location": "Barcelona · Europe · Commissions worldwide",
+    "portraitAlt": "Miroslav Stibůrek — contemporary artist and designer",
+    "cta": "Get in touch",
+    "exhibitionsCta": "View exhibitions"
+  },
+  "pressProof": {
+    "asSeenIn": "As seen in"
+  },
+  "clientLocations": {
+    "title": "Where clients are based"
+  },
+  "contact": {
+    "eyebrow": "Inquiries",
+    "title": "Get in touch",
+    "description": "For available works, commissions, design projects, or business collaborations. Each message is answered personally.",
+    "cta": "Email Miroslavo",
+    "shopCta": "Available works",
+    "designCta": "View design work",
+    "businessCta": "Business & marketing",
+    "note": "Art and design inquiries welcome · Marketing via miros.digital"
+  },
+  "footer": {
+    "tagline": "Contemporary abstract art · Paintings · Prints · Commissions",
+    "rights": "All rights reserved.",
+    "trademark": "MIROSLAVO® is a registered trademark."
+  },
+  "works": {
+    "metadata": {
+      "title": "Available works",
+      "description": "Original abstract paintings available for purchase — inquire directly for shipping, framing, and payment details."
+    },
+    "eyebrow": "Available works",
+    "title": "Paintings for sale",
+    "description": "A selection of original abstract paintings. Each piece is one of a kind — inquire for availability, shipping, and payment arrangements.",
+    "note": "Prices shown in EUR. Shipping and framing quoted on request.",
+    "inquire": "Inquire",
+    "sold": "Sold",
+    "categories": {
+      "painting": "Painting",
+      "print": "Print"
+    },
+    "cta": {
+      "eyebrow": "Questions",
+      "text": "For commissions, custom sizes, or works not listed here — get in touch directly.",
+      "email": "Email",
+      "contact": "Contact",
+      "design": "View design work"
+    }
+  },
+  "design": {
+    "metadata": {
+      "title": "Design",
+      "description": "Branding, product, industrial, and graphic design by Miroslav Stibůrek — alongside a contemporary art practice."
+    },
+    "eyebrow": "Design",
+    "title": "Branding, product, and visual design",
+    "description": "Alongside painting, the studio extends into design — brand identities, product concepts, industrial objects, and graphic work shaped by the same intuitive visual language.",
+    "featured": {
+      "eyebrow": "Selected work",
+      "description": "Industrial design, product concepts, branding, graphic work, and web projects — including A’ Design Award winners and client commissions."
+    },
+    "commissions": {
+      "eyebrow": "Art projects & commissions",
+      "title": "Art projects and commissions",
+      "description": "Custom paintings, live painting, murals, artwear, and collaborations — for private clients, brands, institutions, and causes.",
+      "inquire": "Inquire"
+    },
+    "categories": {
+      "branding": "Branding",
+      "industrial": "Industrial design",
+      "product": "Product design",
+      "graphic": "Graphic design",
+      "digital": "Web & digital",
+      "livePainting": "Live painting",
+      "artCommission": "Art commission",
+      "donation": "Donation",
+      "collaboration": "Collaboration"
+    },
+    "cta": {
+      "eyebrow": "Collaborate",
+      "text": "For design commissions or creative direction — get in touch, or explore the painting practice.",
+      "email": "Email",
+      "art": "View paintings",
+      "business": "Business & marketing"
+    }
+  },
+  "blog": {
+    "metadata": {
+      "title": "Journal",
+      "description": "Studio notes, exhibitions, commissions, and reflections from Miroslav Stibůrek — The Abstract Philosopher."
+    },
+    "eyebrow": "Journal",
+    "title": "The Abstract Philosopher",
+    "description": "Studio notes, exhibitions, commissions, and reflections — pulled from the living archive on miroslavo.com.",
+    "back": "All posts",
+    "empty": "No posts found.",
+    "fallback": "This post is available on the full archive.",
+    "readOnSite": "Read on miroslavo.com",
+    "pagination": {
+      "loadMore": "Load more",
+      "loading": "Loading…",
+      "showing": "Showing {count} of {total} posts"
+    }
+  },
+  "exhibitions": {
+    "metadata": {
+      "title": "Exhibitions",
+      "description": "Selected exhibitions, live painting performances, workshops, and speaking events by Miroslav Stibůrek — in Spain, Czechia, and internationally."
+    },
+    "eyebrow": "Exhibitions",
+    "title": "Exhibitions, performances & events",
+    "description": "From solo museum shows to live painting, brand collaborations, and creative workshops — a curated record of exhibitions and public work across Europe and beyond.",
+    "featured": {
+      "eyebrow": "Featured exhibitions and events",
+      "description": "A curated selection of standout shows, performances, and collaborations — full timeline below."
+    },
+    "bicdVideo": {
+      "eyebrow": "Host ambassador",
+      "title": "Barcelona International Community Day",
+      "description": "Selected as one of six host ambassadors for BICD 2024 — supporting Barcelona’s international community through workshops, testimony, and creative programming. Video by Ajuntament de Barcelona.",
+      "credit": "2024 · Workshop & host ambassador · Maritime Museum, Barcelona",
+      "videoTitle": "Miroslavo — host ambassador for Barcelona International Community Day"
+    },
+    "timeline": {
+      "eyebrow": "Timeline",
+      "title": "Exhibitions and events by year"
+    },
+    "timelineNote": "A curated selection — not every street performance or pop-up is listed. For booking live painting, workshops, or speaking, get in touch directly.",
+    "cta": {
+      "eyebrow": "Book an event",
+      "text": "For live painting, workshops, speaking, or exhibition collaborations — inquire directly.",
+      "email": "Email",
+      "contact": "Contact",
+      "works": "Available works"
+    }
+  }
+}

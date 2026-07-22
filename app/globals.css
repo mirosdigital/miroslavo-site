@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --background: #fafafa;
+  --foreground: #0a0a0a;
+  --surface: #ffffff;
+  --surface-muted: #f5f5f5;
+  --border: #e5e5e5;
+  --muted: #737373;
+  --muted-light: #a3a3a3;
+  --brand-turquoise: #1da7c5;
+  --brand-turquoise-map: #e3e3e3;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0a0a0a;
+  --foreground: #fafafa;
+  --surface: #111111;
+  --surface-muted: #171717;
+  --border: #262626;
+  --muted: #a3a3a3;
+  --muted-light: #737373;
+  --brand-turquoise: #4cc4dc;
+  --brand-turquoise-map: #3a3a3a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-muted: var(--surface-muted);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-light: var(--muted-light);
+  --color-brand-turquoise: var(--brand-turquoise);
+  --color-brand-turquoise-map: var(--brand-turquoise-map);
+  --font-sans: var(--font-body);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--foreground) 12%, transparent);
+  color: var(--foreground);
+}
+
+html.theme-transition,
+html.theme-transition *,
+html.theme-transition *::before,
+html.theme-transition *::after {
+  transition:
+    background-color 0.5s ease,
+    color 0.4s ease,
+    border-color 0.4s ease !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  html.theme-transition,
+  html.theme-transition *,
+  html.theme-transition *::before,
+  html.theme-transition *::after {
+    transition: none !important;
+  }
+}
+
+:focus-visible {
+  outline: 1px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.editorial-label {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+@keyframes logo-marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-marquee {
+  animation: logo-marquee 48s linear infinite;
+}
+
+.logo-marquee-reverse {
+  animation-direction: reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo-marquee {
+    animation: none;
+  }
+}
+
+/* Press logos: readable in dark mode without flat inverted rectangles */
+.dark .press-logo-img {
+  filter: grayscale(100%) brightness(1.85) contrast(0.9);
+}
+
+.dark .logo-marquee a:hover .press-logo-img,
+.dark .logo-marquee div:hover .press-logo-img {
+  filter: grayscale(0%) brightness(1.05) contrast(1);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.wp-content :where(h2, h3, h4) {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  color: var(--foreground);
+}
+
+.wp-content :where(h2) {
+  font-size: 1.5rem;
+  line-height: 1.2;
+}
+
+.wp-content :where(h3) {
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+
+.wp-content :where(p, ul, ol, blockquote) {
+  margin-top: 1rem;
+}
+
+.wp-content :where(a) {
+  color: var(--foreground);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.wp-content :where(img, figure) {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wp-content :where(img) {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0;
+}
+
+.wp-content :where(blockquote) {
+  border-left: 1px solid var(--border);
+  padding-left: 1rem;
+  color: var(--muted);
+}
+
+.wp-content :where(ul, ol) {
+  padding-left: 1.25rem;
+}
+
+.wp-content :where(li + li) {
+  margin-top: 0.35rem;
+}

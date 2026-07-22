@@ -1,0 +1,76 @@
+import type { Artwork } from "@/lib/data/artworks";
+
+export type WorkStatus = "available" | "sold";
+
+export type AvailableWork = Artwork & {
+  price: number;
+  currency?: "EUR";
+  medium?: string;
+  size?: string;
+  status?: WorkStatus;
+};
+
+/** Subset of paintings currently offered — prices synced from miroslavo.com shop. */
+export const availableWorks: AvailableWork[] = [
+  {
+    id: "dances-with-chaos",
+    title: "Dances with Chaos",
+    category: "painting",
+    image: "/art/dances-with-chaos.jpg",
+    imageAlt: "Dances with Chaos — abstract painting by Miroslavo",
+    price: 1000,
+    medium: "Acrylic on canvas",
+    size: "60 × 73 cm",
+  },
+  {
+    id: "home-sweet-home",
+    title: "Home Sweet Home",
+    category: "painting",
+    image: "/art/home-sweet-home.jpg",
+    imageAlt: "Home Sweet Home — contemporary abstract painting by Miroslavo",
+    price: 200,
+    medium: "Acrylic on canvas",
+    size: "27 × 22 cm",
+  },
+  {
+    id: "queens-landing",
+    title: "Queen's Landing",
+    category: "painting",
+    image: "/art/queens-landing.jpg",
+    imageAlt: "Queen's Landing — abstract painting by Miroslavo",
+    price: 600,
+    medium: "Acrylic on canvas",
+    size: "46 × 38 cm",
+  },
+  {
+    id: "decisive",
+    title: "Decisive",
+    category: "painting",
+    image: "/art/decisive.jpg",
+    imageAlt: "Decisive — abstract painting by Miroslavo",
+    price: 2000,
+    medium: "Acrylic on canvas",
+    size: "100 × 100 cm",
+    status: "sold",
+  },
+  {
+    id: "spread-your-wings",
+    title: "Spread Your Wings and Fly",
+    category: "painting",
+    image: "/art/spread-your-wings.jpg",
+    imageAlt: "Spread Your Wings and Fly — abstract painting by Miroslavo",
+    price: 800,
+    medium: "Acrylic on canvas",
+    size: "61 × 50 cm",
+  },
+  {
+    id: "resurrection",
+    title: "Resurrection",
+    category: "painting",
+    image: "/art/resurrection.jpg",
+    imageAlt: "Resurrection — abstract painting by Miroslavo",
+    price: 300,
+    medium: "Acrylic on canvas",
+    size: "40 × 33 cm",
+  },
+];
