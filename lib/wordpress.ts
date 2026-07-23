@@ -15,6 +15,18 @@ function getWordPressApiBase(): string {
 
 const WP_API = getWordPressApiBase();
 
+const WP_FETCH_HEADERS = {
+  Accept: "application/json",
+  "User-Agent": "MiroslavoSite/1.0 (+https://www.miroslavo.com)",
+};
+
+function isProductionBuild(): boolean {
+  return (
+    process.env.NEXT_PHASE === "phase-production-build" ||
+    process.env.NEXT_PHASE === "phase-export"
+  );
+}
+
 export type WordPressPost = {
   id: number;
   slug: string;
@@ -134,6 +146,12 @@ async function resolveFeaturedImage(
     return embedded;
   }
 
+  // Skip HTML scraping during production builds — WordPress security plugins
+  // often block datacenter IPs when many page fetches run in parallel.
+  if (isProductionBuild()) {
+    return undefined;
+  }
+
   if (raw.featured_media > 0 || raw.content.rendered.trim().length === 0) {
     return featuredImageFromPage(raw.link, title);
   }
@@ -183,9 +201,13 @@ export function stripHtml(html: string): string {
   return decodeHtmlEntities(html.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ").trim());
 }
 
-async function fetchWp<T>(path: string, init?: RequestInit): Promise<Response> {
+async function fetchWp(path: string, init?: RequestInit): Promise<Response> {
   const response = await fetch(`${WP_API}${path}`, {
     ...init,
+    headers: {
+      ...WP_FETCH_HEADERS,
+      ...init?.headers,
+    },
     next: { revalidate: BLOG_REVALIDATE_SECONDS },
   });
 
@@ -200,25 +222,37 @@ export async function getWordPressPosts(
   page = 1,
   perPage = BLOG_POSTS_PER_PAGE,
 ): Promise<WordPressPostsResult> {
-  const response = await fetchWp(
-    `/posts?per_page=${perPage}&page=${page}&_embed=wp:featuredmedia&orderby=date&order=desc`,
-  );
+  try {
+    const response = await fetchWp(
+      `/posts?per_page=${perPage}&page=${page}&_embed=wp:featuredmedia&orderby=date&order=desc`,
+    );
 
-  const raw = (await response.json()) as WpPostRaw[];
+    const raw = (await response.json()) as WpPostRaw[];
 
-  return {
-    posts: await Promise.all(raw.map(mapPost)),
-    total: Number(response.headers.get("X-WP-Total") ?? raw.length),
-    totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
-  };
+    return {
+      posts: await Promise.all(raw.map(mapPost)),
+      total: Number(response.headers.get("X-WP-Total") ?? raw.length),
+      totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
+    };
+  } catch (error) {
+    if (isProductionBuild()) {
+      return { posts: [], total: 0, totalPages: 0 };
+    }
+
+    throw error;
+  }
 }
 
 export async function getWordPressPost(
   slug: string,
 ): Promise<WordPressPost | null> {
-  const response = await fetch(`${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia`, {
-    next: { revalidate: BLOG_REVALIDATE_SECONDS },
-  });
+  const response = await fetch(
+    `${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia`,
+    {
+      headers: WP_FETCH_HEADERS,
+      next: { revalidate: BLOG_REVALIDATE_SECONDS },
+    },
+  );
 
   if (!response.ok) {
     return null;
@@ -238,7 +272,10 @@ export async function getAllWordPressPostsForSitemap(): Promise<
   while (page <= totalPages) {
     const response = await fetch(
       `${WP_API}/posts?per_page=100&page=${page}&_fields=slug,modified&orderby=date&order=desc`,
-      { next: { revalidate: BLOG_REVALIDATE_SECONDS } },
+      {
+        headers: WP_FETCH_HEADERS,
+        next: { revalidate: BLOG_REVALIDATE_SECONDS },
+      },
     );
 
     if (!response.ok) {

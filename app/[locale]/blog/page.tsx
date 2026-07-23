@@ -1,24 +1,21 @@
 import type { Metadata } from "next";
+import { connection } from "next/server";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import BlogFeed from "@/components/blog/BlogFeed";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
-import { routing } from "@/i18n/routing";
 import { createPageMetadata, defaultOgImagePath } from "@/lib/metadata";
 import { getWordPressPosts } from "@/lib/wordpress";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 3600;
+export const dynamic = "force-dynamic";
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>;
 };
-
-export function generateStaticParams() {
-  return routing.locales.map((locale) => ({ locale }));
-}
 
 export async function generateMetadata({
   params,
@@ -35,6 +32,7 @@ export async function generateMetadata({
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
+  await connection();
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("blog");

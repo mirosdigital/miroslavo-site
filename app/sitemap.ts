@@ -18,7 +18,13 @@ const staticPages: Array<{
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getAllWordPressPostsForSitemap();
+  let posts: Array<{ slug: string; lastModified: string }> = [];
+
+  try {
+    posts = await getAllWordPressPostsForSitemap();
+  } catch {
+    // Build should succeed even if WordPress blocks datacenter IPs temporarily.
+  }
 
   return [
     ...staticPages.map(({ path, changeFrequency, priority }) => ({
