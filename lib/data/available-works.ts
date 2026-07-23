@@ -99,6 +99,7 @@ export const availableWorks: AvailableWork[] = [
     imageAlt: "Big Bang — colourful abstract painting by Miroslavo",
     price: 2500,
     medium: "Acrylic on canvas",
+    status: "sold",
   },
   {
     id: "on-the-edge-of-freedom",
@@ -108,6 +109,7 @@ export const availableWorks: AvailableWork[] = [
     imageAlt: "On The Edge of Freedom — abstract painting by Miroslavo",
     price: 1600,
     medium: "Acrylic on canvas",
+    status: "sold",
   },
   {
     id: "full-bloom",
@@ -117,6 +119,7 @@ export const availableWorks: AvailableWork[] = [
     imageAlt: "Full Bloom — colourful abstract painting by Miroslavo",
     price: 1650,
     medium: "Acrylic on canvas",
+    status: "sold",
   },
   {
     id: "one-love",
@@ -126,5 +129,6 @@ export const availableWorks: AvailableWork[] = [
     imageAlt: "One Love — abstract heart painting by Miroslavo",
     price: 1200,
     medium: "Acrylic on canvas",
+    status: "sold",
   },
 ];

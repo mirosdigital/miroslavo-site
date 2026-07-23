@@ -24,3 +24,7 @@ export function getArtAspectRatio(image: string): number {
 
   return dimensions.width / dimensions.height;
 }
+
+export function getArtImageDimensions(image: string): { width: number; height: number } {
+  return artImageDimensions[image] ?? { width: 4, height: 5 };
+}
