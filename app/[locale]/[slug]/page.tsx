@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
-import Footer from "@/components/Footer";
-import Navbar from "@/components/Navbar";
-import BlogPostLoader from "@/components/blog/BlogPostLoader";
+import { notFound } from "next/navigation";
+import BlogPostView from "@/components/blog/BlogPostView";
 import { createPageMetadata, defaultOgImagePath } from "@/lib/metadata";
-import { getTranslations, setRequestLocale } from "next-intl/server";
+import { getWordPressPost, stripHtml } from "@/lib/wordpress";
+import { setRequestLocale } from "next-intl/server";
 
 export const revalidate = 3600;
 
@@ -14,36 +14,41 @@ type JournalPostPageProps = {
 export async function generateMetadata({
   params,
 }: JournalPostPageProps): Promise<Metadata> {
-  const { locale, slug } = await params;
-  const t = await getTranslations({ locale, namespace: "blog.metadata" });
+  const { slug } = await params;
+  const post = await getWordPressPost(slug);
+
+  if (!post) {
+    return {};
+  }
+
+  const description =
+    stripHtml(post.excerpt.rendered) ||
+    stripHtml(post.content.rendered).slice(0, 160);
 
   return createPageMetadata({
-    title: slug.replace(/-/g, " "),
-    description: t("description"),
+    title: post.title.rendered,
+    description,
     path: `/${slug}`,
-    ogImage: defaultOgImagePath,
+    type: "article",
+    ogImage: post.featuredImage
+      ? {
+          url: post.featuredImage.url,
+          alt: post.featuredImage.alt,
+          width: post.featuredImage.width,
+          height: post.featuredImage.height,
+        }
+      : defaultOgImagePath,
   });
 }
 
 export default async function JournalPostPage({ params }: JournalPostPageProps) {
   const { locale, slug } = await params;
   setRequestLocale(locale);
-  const t = await getTranslations("blog");
+  const post = await getWordPressPost(slug);
 
-  return (
-    <>
-      <Navbar />
-      <BlogPostLoader
-        slug={slug}
-        labels={{
-          back: t("back"),
-          fallback: t("fallback"),
-          readOnSite: t("readOnSite"),
-          loading: t("pagination.loading"),
-          notFound: t("postNotFound"),
-        }}
-      />
-      <Footer />
-    </>
-  );
+  if (!post) {
+    notFound();
+  }
+
+  return <BlogPostView post={post} />;
 }

@@ -5,7 +5,9 @@ import BlogFeed from "@/components/blog/BlogFeed";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
+import { routing } from "@/i18n/routing";
 import { createPageMetadata, defaultOgImagePath } from "@/lib/metadata";
+import { getWordPressPosts } from "@/lib/wordpress";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 3600;
@@ -13,6 +15,10 @@ export const revalidate = 3600;
 type BlogPageProps = {
   params: Promise<{ locale: string }>;
 };
+
+export function generateStaticParams() {
+  return routing.locales.map((locale) => ({ locale }));
+}
 
 export async function generateMetadata({
   params,
@@ -33,6 +39,8 @@ export default async function BlogPage({ params }: BlogPageProps) {
   setRequestLocale(locale);
   const t = await getTranslations("blog");
 
+  const { posts, total, totalPages } = await getWordPressPosts(1);
+
   return (
     <>
       <Navbar />
@@ -50,15 +58,20 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </Section>
 
         <Section wide padTop="none" className="bg-background pb-24 lg:pb-32">
-          <BlogFeed
-            labels={{
-              loadMore: t("pagination.loadMore"),
-              loading: t("pagination.loading"),
-              showing: t("pagination.showing"),
-              loadingInitial: t("pagination.loadingInitial"),
-              empty: t("empty"),
-            }}
-          />
+          {posts.length > 0 ? (
+            <BlogFeed
+              initialPosts={posts}
+              total={total}
+              totalPages={totalPages}
+              labels={{
+                loadMore: t("pagination.loadMore"),
+                loading: t("pagination.loading"),
+                showing: t("pagination.showing"),
+              }}
+            />
+          ) : (
+            <p className="text-sm font-light text-muted">{t("empty")}</p>
+          )}
         </Section>
       </main>
       <Footer />

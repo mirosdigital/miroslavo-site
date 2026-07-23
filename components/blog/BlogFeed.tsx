@@ -3,47 +3,30 @@
 import BlogPostCard from "@/components/blog/BlogPostCard";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
-import { fetchWordPressPostsClient } from "@/lib/wordpress-client";
 import type { WordPressPost } from "@/lib/wordpress";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 type BlogFeedProps = {
+  initialPosts: WordPressPost[];
+  total: number;
+  totalPages: number;
   labels: {
     loadMore: string;
     loading: string;
     showing: string;
-    loadingInitial: string;
-    empty: string;
   };
 };
 
-export default function BlogFeed({ labels }: BlogFeedProps) {
-  const [posts, setPosts] = useState<WordPressPost[]>([]);
-  const [page, setPage] = useState(0);
-  const [total, setTotal] = useState(0);
-  const [totalPages, setTotalPages] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const hasMore = page > 0 && page < totalPages;
-
-  useEffect(() => {
-    let cancelled = false;
-
-    fetchWordPressPostsClient(1).then((result) => {
-      if (cancelled) {
-        return;
-      }
-
-      setPosts(result.posts);
-      setPage(result.posts.length > 0 ? 1 : 0);
-      setTotal(result.total);
-      setTotalPages(result.totalPages);
-      setLoading(false);
-    });
-
-    return () => {
-      cancelled = true;
-    };
-  }, []);
+export default function BlogFeed({
+  initialPosts,
+  total,
+  totalPages,
+  labels,
+}: BlogFeedProps) {
+  const [posts, setPosts] = useState(initialPosts);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+  const hasMore = page < totalPages;
 
   async function loadMore() {
     if (loading || !hasMore) {
@@ -53,22 +36,21 @@ export default function BlogFeed({ labels }: BlogFeedProps) {
     setLoading(true);
 
     try {
-      const result = await fetchWordPressPostsClient(page + 1);
-      setPosts((current) => [...current, ...result.posts]);
+      const response = await fetch(`/api/blog/posts?page=${page + 1}`);
+
+      if (!response.ok) {
+        throw new Error("Failed to load posts");
+      }
+
+      const data = (await response.json()) as {
+        posts: WordPressPost[];
+      };
+
+      setPosts((current) => [...current, ...data.posts]);
       setPage((current) => current + 1);
-      setTotal(result.total);
-      setTotalPages(result.totalPages);
     } finally {
       setLoading(false);
     }
-  }
-
-  if (loading && posts.length === 0) {
-    return <p className="text-sm font-light text-muted">{labels.loadingInitial}</p>;
-  }
-
-  if (!loading && posts.length === 0) {
-    return <p className="text-sm font-light text-muted">{labels.empty}</p>;
   }
 
   return (
