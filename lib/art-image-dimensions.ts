@@ -6,7 +6,7 @@ export const artImageDimensions: Record<string, { width: number; height: number 
   "/art/dancing-queen.jpg": { width: 2025, height: 2560 },
   "/art/decisive.jpg": { width: 2434, height: 2439 },
   "/art/foundations.jpg": { width: 1678, height: 2048 },
-  "/art/full-bloom.jpg": { width: 1536, height: 2048 },
+  "/art/full-bloom.jpg": { width: 2560, height: 2025 },
   "/art/home-sweet-home.jpg": { width: 1500, height: 1870 },
   "/art/luchador.jpg": { width: 2014, height: 2560 },
   "/art/on-the-edge-of-freedom.jpg": { width: 1216, height: 1536 },
