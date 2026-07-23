@@ -1,11 +1,7 @@
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
-import {
-  facebookReviewsUrl,
-  googleReviewsUrl,
-  testimonials,
-} from "@/lib/data/testimonials";
+import { testimonials } from "@/lib/data/testimonials";
 import { getTranslations } from "next-intl/server";
 
 export default async function Testimonials() {
@@ -46,28 +42,6 @@ export default async function Testimonials() {
           </Reveal>
         ))}
       </div>
-
-      <Reveal delay={0.12} className="mt-14 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-center lg:mt-16">
-        <a
-          href={facebookReviewsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-light text-muted underline-offset-4 transition-colors duration-300 hover:text-foreground hover:underline"
-        >
-          {t("facebookCta")}
-        </a>
-        <span className="hidden text-muted/40 sm:inline" aria-hidden="true">
-          ·
-        </span>
-        <a
-          href={googleReviewsUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-sm font-light text-muted underline-offset-4 transition-colors duration-300 hover:text-foreground hover:underline"
-        >
-          {t("googleCta")}
-        </a>
-      </Reveal>
     </Section>
   );
 }

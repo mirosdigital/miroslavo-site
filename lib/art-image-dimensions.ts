@@ -1,6 +1,7 @@
 /** Pixel dimensions of files in public/art — used for correct display aspect ratios. */
 export const artImageDimensions: Record<string, { width: number; height: number }> = {
   "/art/big-bang.jpg": { width: 1300, height: 1300 },
+  "/art/contra-nature.jpg": { width: 839, height: 1024 },
   "/art/crowned.jpg": { width: 1536, height: 1350 },
   "/art/dances-with-chaos.jpg": { width: 2500, height: 2053 },
   "/art/dancing-queen.jpg": { width: 2025, height: 2560 },

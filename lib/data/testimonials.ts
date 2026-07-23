@@ -1,4 +1,4 @@
-/** Facebook — https://www.facebook.com/miroslavo2020/reviews */
+/** Client & collector reviews */
 export type Testimonial = {
   id: string;
   quote: string;
@@ -26,10 +26,10 @@ export const testimonials: Testimonial[] = [
     context: "Signed print · Club 23 Barcelona",
   },
   {
-    id: "czech-collector",
+    id: "zbynek",
     quote:
       "Míra and his work under the Miroslavo brand are stunning — an incredibly skilled artist with excellent ideas and completely original work. Communication was excellent and friendly. Delivery of my painting from Barcelona to Czechia was completely trouble-free, safely packed in sturdy boards, with a handwritten dedication that was a lovely surprise.",
-    author: "Collector",
+    author: "Zbynek",
     company: "Czech Republic",
     context: "Original painting · shipped from Barcelona",
   },
@@ -43,8 +43,3 @@ export const testimonials: Testimonial[] = [
     context: "Logo & visual identity",
   },
 ];
-
-export const facebookReviewsUrl = "https://www.facebook.com/miroslavo2020/reviews";
-
-export const googleReviewsUrl =
-  "https://www.google.com/search?q=MIROSLAVO%C2%AE+Reviews&tbm=lcl";

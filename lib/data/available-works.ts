@@ -54,6 +54,16 @@ export const availableWorks: AvailableWork[] = [
     status: "sold",
   },
   {
+    id: "contra-nature",
+    title: "Contra Nature",
+    category: "painting",
+    image: "/art/contra-nature.jpg",
+    imageAlt: "Contra Nature — green and gold abstract painting by Miroslavo",
+    price: 600,
+    medium: "Acrylic on canvas",
+    size: "61 × 50 cm",
+  },
+  {
     id: "spread-your-wings",
     title: "Spread Your Wings and Fly",
     category: "painting",
