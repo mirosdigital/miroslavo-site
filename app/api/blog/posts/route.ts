@@ -7,7 +7,11 @@ export async function GET(request: Request) {
     1,
     Number(new URL(request.url).searchParams.get("page")) || 1,
   );
-  const result = await getWordPressPosts(page);
 
-  return Response.json(result);
+  try {
+    const result = await getWordPressPosts(page);
+    return Response.json(result);
+  } catch {
+    return Response.json({ posts: [], total: 0, totalPages: 0 });
+  }
 }

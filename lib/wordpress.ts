@@ -13,19 +13,14 @@ function getWordPressApiBase(): string {
   return `${getWordPressOrigin()}/wp-json/wp/v2`;
 }
 
-const WP_API = getWordPressApiBase();
+function wpApiUrl(path: string): string {
+  return `${getWordPressApiBase()}${path}`;
+}
 
 const WP_FETCH_HEADERS = {
   Accept: "application/json",
   "User-Agent": "MiroslavoSite/1.0 (+https://www.miroslavo.com)",
 };
-
-function isProductionBuild(): boolean {
-  return (
-    process.env.NEXT_PHASE === "phase-production-build" ||
-    process.env.NEXT_PHASE === "phase-export"
-  );
-}
 
 export type WordPressPost = {
   id: number;
@@ -146,9 +141,8 @@ async function resolveFeaturedImage(
     return embedded;
   }
 
-  // Skip HTML scraping during production builds — WordPress security plugins
-  // often block datacenter IPs when many page fetches run in parallel.
-  if (isProductionBuild()) {
+  // Skip HTML scraping on the server — security plugins often block datacenter IPs.
+  if (typeof window === "undefined") {
     return undefined;
   }
 
@@ -202,7 +196,7 @@ export function stripHtml(html: string): string {
 }
 
 async function fetchWp(path: string, init?: RequestInit): Promise<Response> {
-  const response = await fetch(`${WP_API}${path}`, {
+  const response = await fetch(wpApiUrl(path), {
     ...init,
     headers: {
       ...WP_FETCH_HEADERS,
@@ -211,21 +205,30 @@ async function fetchWp(path: string, init?: RequestInit): Promise<Response> {
     next: { revalidate: BLOG_REVALIDATE_SECONDS },
   });
 
-  if (!response.ok) {
-    throw new Error(`WordPress API error: ${response.status} ${path}`);
-  }
-
   return response;
+}
+
+function emptyPostsResult(): WordPressPostsResult {
+  return { posts: [], total: 0, totalPages: 0 };
 }
 
 export async function getWordPressPosts(
   page = 1,
   perPage = BLOG_POSTS_PER_PAGE,
 ): Promise<WordPressPostsResult> {
+  const query = `/posts?per_page=${perPage}&page=${page}&orderby=date&order=desc`;
+  const queryWithEmbed = `${query}&_embed=wp:featuredmedia`;
+
   try {
-    const response = await fetchWp(
-      `/posts?per_page=${perPage}&page=${page}&_embed=wp:featuredmedia&orderby=date&order=desc`,
-    );
+    let response = await fetchWp(queryWithEmbed);
+
+    if (response.status === 403 || response.status === 401) {
+      response = await fetchWp(query);
+    }
+
+    if (!response.ok) {
+      return emptyPostsResult();
+    }
 
     const raw = (await response.json()) as WpPostRaw[];
 
@@ -234,25 +237,26 @@ export async function getWordPressPosts(
       total: Number(response.headers.get("X-WP-Total") ?? raw.length),
       totalPages: Number(response.headers.get("X-WP-TotalPages") ?? 1),
     };
-  } catch (error) {
-    if (isProductionBuild()) {
-      return { posts: [], total: 0, totalPages: 0 };
-    }
-
-    throw error;
+  } catch {
+    return emptyPostsResult();
   }
 }
 
 export async function getWordPressPost(
   slug: string,
 ): Promise<WordPressPost | null> {
-  const response = await fetch(
-    `${WP_API}/posts?slug=${encodeURIComponent(slug)}&_embed=wp:featuredmedia`,
-    {
+  const baseQuery = `/posts?slug=${encodeURIComponent(slug)}`;
+  let response = await fetch(wpApiUrl(`${baseQuery}&_embed=wp:featuredmedia`), {
+    headers: WP_FETCH_HEADERS,
+    next: { revalidate: BLOG_REVALIDATE_SECONDS },
+  });
+
+  if (response.status === 403 || response.status === 401) {
+    response = await fetch(wpApiUrl(baseQuery), {
       headers: WP_FETCH_HEADERS,
       next: { revalidate: BLOG_REVALIDATE_SECONDS },
-    },
-  );
+    });
+  }
 
   if (!response.ok) {
     return null;
@@ -271,7 +275,9 @@ export async function getAllWordPressPostsForSitemap(): Promise<
 
   while (page <= totalPages) {
     const response = await fetch(
-      `${WP_API}/posts?per_page=100&page=${page}&_fields=slug,modified&orderby=date&order=desc`,
+      wpApiUrl(
+        `/posts?per_page=100&page=${page}&_fields=slug,modified&orderby=date&order=desc`,
+      ),
       {
         headers: WP_FETCH_HEADERS,
         next: { revalidate: BLOG_REVALIDATE_SECONDS },
