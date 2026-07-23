@@ -34,12 +34,13 @@ export default async function Practice() {
         {offerings.map((offering, index) => (
           <Reveal key={offering.key} delay={index * 0.08}>
             <article className="group">
-              <div className="relative aspect-[4/5] overflow-hidden">
+              <div className="relative w-full bg-surface-muted">
                 <Image
                   src={offering.image}
                   alt={t(`offerings.${offering.key}.imageAlt`)}
-                  fill
-                  className="object-cover transition-transform duration-[1.4s] ease-out group-hover:scale-[1.015]"
+                  width={offering.width}
+                  height={offering.height}
+                  className="h-auto w-full"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
               </div>
