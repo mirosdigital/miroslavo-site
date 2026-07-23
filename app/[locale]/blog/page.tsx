@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { connection } from "next/server";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import BlogFeed from "@/components/blog/BlogFeed";
@@ -7,11 +6,9 @@ import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { createPageMetadata, defaultOgImagePath } from "@/lib/metadata";
-import { getWordPressPosts } from "@/lib/wordpress";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 
 export const revalidate = 3600;
-export const dynamic = "force-dynamic";
 
 type BlogPageProps = {
   params: Promise<{ locale: string }>;
@@ -32,12 +29,9 @@ export async function generateMetadata({
 }
 
 export default async function BlogPage({ params }: BlogPageProps) {
-  await connection();
   const { locale } = await params;
   setRequestLocale(locale);
   const t = await getTranslations("blog");
-
-  const { posts, total, totalPages } = await getWordPressPosts(1);
 
   return (
     <>
@@ -56,20 +50,15 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </Section>
 
         <Section wide padTop="none" className="bg-background pb-24 lg:pb-32">
-          {posts.length > 0 ? (
-            <BlogFeed
-              initialPosts={posts}
-              total={total}
-              totalPages={totalPages}
-              labels={{
-                loadMore: t("pagination.loadMore"),
-                loading: t("pagination.loading"),
-                showing: t("pagination.showing"),
-              }}
-            />
-          ) : (
-            <p className="text-sm font-light text-muted">{t("empty")}</p>
-          )}
+          <BlogFeed
+            labels={{
+              loadMore: t("pagination.loadMore"),
+              loading: t("pagination.loading"),
+              showing: t("pagination.showing"),
+              loadingInitial: t("pagination.loadingInitial"),
+              empty: t("empty"),
+            }}
+          />
         </Section>
       </main>
       <Footer />

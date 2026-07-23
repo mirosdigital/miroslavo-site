@@ -203,11 +203,13 @@
     "description": "Studio notes, exhibitions, commissions, and reflections — pulled from the living archive on miroslavo.com.",
     "back": "All posts",
     "empty": "No posts found.",
+    "postNotFound": "Post not found.",
     "fallback": "This post is available on the full archive.",
     "readOnSite": "Read on miroslavo.com",
     "pagination": {
       "loadMore": "Load more",
       "loading": "Loading…",
+      "loadingInitial": "Loading posts…",
       "showing": "Showing {count} of {total} posts"
     }
   },
