@@ -1,3 +1,4 @@
+import TestimonialCarousel from "@/components/TestimonialCarousel";
 import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
@@ -17,31 +18,11 @@ export default async function Testimonials() {
         >
           {t("title")}
         </h2>
-        <p className="mt-6 text-base font-light leading-[1.75] text-muted">{t("description")}</p>
       </Reveal>
 
-      <div className="mt-16 grid gap-10 sm:grid-cols-2 lg:mt-20 lg:gap-12">
-        {testimonials.map((item, index) => (
-          <Reveal key={item.id} delay={index * 0.06}>
-            <figure className="flex h-full flex-col border-t border-border pt-8">
-              <blockquote className="flex-1">
-                <p className="text-lg font-light leading-[1.65] tracking-[-0.01em] text-foreground">
-                  &ldquo;{item.quote}&rdquo;
-                </p>
-              </blockquote>
-              <figcaption className="mt-8">
-                <p className="editorial-label">{item.context}</p>
-                <p className="mt-2 text-base font-normal tracking-[-0.02em] text-foreground">
-                  {item.author}
-                </p>
-                <p className="mt-1 text-sm font-light text-muted">
-                  {[item.role, item.company].filter(Boolean).join(", ")}
-                </p>
-              </figcaption>
-            </figure>
-          </Reveal>
-        ))}
-      </div>
+      <Reveal delay={0.06} className="mx-auto mt-12 max-w-3xl lg:mt-14">
+        <TestimonialCarousel testimonials={testimonials} />
+      </Reveal>
     </Section>
   );
 }
