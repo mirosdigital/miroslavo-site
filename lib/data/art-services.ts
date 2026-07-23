@@ -13,19 +13,19 @@ export type ArtService = {
 export const artServices: ArtService[] = [
   {
     key: "collaborations",
-    image: "/services/oxcala-buoy-installation.png",
+    image: "/art-services/oxcala-buoy-installation.png",
   },
   {
     key: "prints",
-    image: "/services/prints-stack.jpg",
+    image: "/art-services/prints-stack.jpg",
   },
   {
     key: "livePainting",
-    image: "/services/noho-mural.png",
+    image: "/art-services/noho-mural.png",
     imagePosition: "object-[72%_center]",
   },
   {
     key: "workshops",
-    image: "/services/workshops.png",
+    image: "/art-services/workshops.png",
   },
 ];

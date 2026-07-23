@@ -55,7 +55,7 @@ export const exhibitionHighlights: ExhibitionHighlight[] = [
     location: "Los Naranjos Golf, Marbella, Spain",
     description:
       "First-ever exhibition of Art Buoys — a collaboration between Oxcala of Sweden and NoHo House Barcelona.",
-    image: "/services/oxcala-buoy-installation.png",
+    image: "/art-services/oxcala-buoy-installation.png",
     imageAlt: "Oxcala art buoy installation at Circle of Art, Marbella",
     aspect: "landscape",
   },
@@ -66,7 +66,7 @@ export const exhibitionHighlights: ExhibitionHighlight[] = [
     location: "Maritime Museum, Barcelona, Spain",
     description:
       "Host ambassador for Barcelona International Community Day — round table on culture and creativity, following a workshop on building a living from your passions in 2024.",
-    image: "/services/workshops.png",
+    image: "/art-services/workshops.png",
     imageAlt: "Workshop and speaking at Barcelona International Community Day",
     aspect: "landscape",
   },
