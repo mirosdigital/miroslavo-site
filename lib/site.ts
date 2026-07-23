@@ -5,7 +5,7 @@ export const siteConfig = {
     "Original abstract paintings, limited edition prints, and commissions by Miroslav Stibůrek.",
   url: "https://www.miroslavo.com",
   locale: "en_US",
-  email: "hello@miroslavo.com",
+  email: "hola@miroslavo.com",
   author: "Miroslav Stibůrek",
   shopUrl: "/works",
   mirosDigitalUrl: "https://miros.digital",
