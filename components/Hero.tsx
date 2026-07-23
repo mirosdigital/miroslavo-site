@@ -16,10 +16,10 @@ export default async function Hero() {
       <div className="mx-auto grid min-h-[100svh] max-w-[120rem] lg:grid-cols-12">
         <div className="flex flex-col justify-center px-6 pb-16 pt-24 sm:px-10 lg:col-span-4 lg:px-16 lg:py-28 xl:py-32">
           <SectionLabel>{t("eyebrow")}</SectionLabel>
-          <h1 className="mt-8 text-[clamp(2.75rem,5.5vw,4.25rem)] font-light leading-[1.08] tracking-[-0.03em] text-foreground">
+          <h1 className="mt-6 max-w-[14em] text-pretty text-[clamp(2.25rem,6vw,4rem)] font-light leading-[1.12] tracking-[-0.03em] text-foreground sm:mt-8">
             {t("title")}
           </h1>
-          <p className="mt-8 max-w-sm text-base font-light leading-[1.75] text-muted">
+          <p className="mt-6 max-w-sm text-base font-light leading-[1.7] text-muted sm:mt-8">
             {t("description")}
           </p>
           <CtaActions
