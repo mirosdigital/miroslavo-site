@@ -10,7 +10,7 @@ export const artImageDimensions: Record<string, { width: number; height: number 
   "/art/home-sweet-home.jpg": { width: 1500, height: 1870 },
   "/art/luchador.jpg": { width: 2014, height: 2560 },
   "/art/on-the-edge-of-freedom.jpg": { width: 1216, height: 1536 },
-  "/art/one-love.jpg": { width: 1300, height: 1300 },
+  "/art/one-love.jpg": { width: 2560, height: 2035 },
   "/art/queens-landing.jpg": { width: 2104, height: 2560 },
   "/art/resurrection.jpg": { width: 1500, height: 1831 },
   "/art/spread-your-wings.jpg": { width: 2140, height: 2560 },
