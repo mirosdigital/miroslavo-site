@@ -7,6 +7,7 @@ import {
   getTranslations,
   setRequestLocale,
 } from "next-intl/server";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { routing } from "@/i18n/routing";
 import { siteConfig } from "@/lib/site";
@@ -92,6 +93,7 @@ export default async function LocaleLayout({
         <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
       </head>
       <body className="min-h-full bg-background text-foreground">
+        <GoogleAnalytics />
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider>
             <a

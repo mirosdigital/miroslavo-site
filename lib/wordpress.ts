@@ -27,6 +27,7 @@ export type WordPressPost = {
   id: number;
   slug: string;
   date: string;
+  modified: string;
   link: string;
   title: { rendered: string };
   excerpt: { rendered: string };
@@ -43,6 +44,7 @@ type WpPostRaw = {
   id: number;
   slug: string;
   date: string;
+  modified: string;
   link: string;
   featured_media: number;
   title: { rendered: string };
@@ -161,6 +163,7 @@ async function mapPost(raw: WpPostRaw): Promise<WordPressPost> {
     id: raw.id,
     slug: raw.slug,
     date: raw.date,
+    modified: raw.modified,
     link: raw.link,
     title: { rendered: title },
     excerpt: { rendered: raw.excerpt.rendered },

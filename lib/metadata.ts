@@ -21,6 +21,11 @@ type PageMetadataInput = {
   path: string;
   ogImage?: string | OgImage;
   type?: "website" | "article";
+  /** Use for the homepage so the layout title template does not append the site name twice. */
+  absoluteTitle?: boolean;
+  publishedTime?: string;
+  modifiedTime?: string;
+  authors?: string[];
 };
 
 function resolveOgImage(
@@ -44,16 +49,21 @@ export function createPageMetadata({
   path,
   ogImage = defaultOgImagePath,
   type = "website",
+  absoluteTitle = false,
+  publishedTime,
+  modifiedTime,
+  authors = [siteConfig.author],
 }: PageMetadataInput): Metadata {
   const url = absoluteUrl(path);
   const image = resolveOgImage(ogImage, title);
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: url,
     },
+    authors: authors.map((name) => ({ name })),
     openGraph: {
       title,
       description,
@@ -62,6 +72,13 @@ export function createPageMetadata({
       locale: siteConfig.locale,
       type,
       images: [image],
+      ...(type === "article" && publishedTime
+        ? {
+            publishedTime,
+            modifiedTime: modifiedTime ?? publishedTime,
+            authors,
+          }
+        : {}),
     },
     twitter: {
       card: "summary_large_image",

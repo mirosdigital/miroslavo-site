@@ -1,8 +1,8 @@
 {
   "metadata": {
-    "title": "Miroslavo — Contemporary Abstract Art",
-    "description": "Original abstract paintings, limited edition prints, and commissions by Miroslav Stibůrek.",
-    "ogAlt": "Miroslavo — contemporary abstract art"
+    "title": "Miroslavo — Contemporary Abstract Artist | Original Paintings & Commissions",
+    "description": "Barcelona-based contemporary abstract artist Miroslav Stibůrek (Miroslavo). Original abstract paintings for sale, limited edition prints, and commissions — shipped worldwide.",
+    "ogAlt": "Contemporary abstract art by Miroslavo — original paintings"
   },
   "common": {
     "skipToContent": "Skip to content",
@@ -23,9 +23,9 @@
     "inquire": "Inquire"
   },
   "hero": {
-    "eyebrow": "Artist · Designer · Creative strategist",
-    "title": "Colour, gesture, and intuitive form.",
-    "description": "Miroslav Stibůrek creates contemporary art and design — and helps businesses grow through digital strategy and marketing at miros.digital.",
+    "eyebrow": "Contemporary abstract artist · Barcelona",
+    "title": "Original abstract paintings — colour, gesture, and intuitive form.",
+    "description": "Miroslav Stibůrek (Miroslavo) creates contemporary abstract art from Barcelona — paintings, prints, and commissions, alongside design work and creative strategy at miros.digital.",
     "ctaPrimary": "View works",
     "ctaSecondary": "Inquire",
     "featuredWork": "Dances with Chaos"
@@ -129,18 +129,18 @@
     "note": "Art and design inquiries welcome · Marketing via miros.digital"
   },
   "footer": {
-    "tagline": "Contemporary abstract art · Paintings · Prints · Commissions",
+    "tagline": "Contemporary abstract artist · Original paintings · Prints · Commissions",
     "rights": "All rights reserved.",
     "trademark": "MIROSLAVO® is a registered trademark."
   },
   "works": {
     "metadata": {
-      "title": "Available works",
-      "description": "Original abstract paintings available for purchase — inquire directly for shipping, framing, and payment details."
+      "title": "Colourful Abstract Paintings for Sale",
+      "description": "Buy original colourful abstract paintings by Miroslav Stibůrek (Miroslavo). Contemporary abstract art available for purchase — inquire for shipping, framing, and payment."
     },
     "eyebrow": "Available works",
-    "title": "Paintings for sale",
-    "description": "A selection of original abstract paintings. Each piece is one of a kind — inquire for availability, shipping, and payment arrangements.",
+    "title": "Colourful abstract paintings for sale",
+    "description": "Original colourful contemporary abstract paintings by Miroslavo. Each piece is one of a kind — inquire for availability, shipping, and payment arrangements.",
     "note": "Prices shown in EUR. Shipping and framing quoted on request.",
     "inquire": "Inquire",
     "sold": "Sold",
@@ -158,8 +158,8 @@
   },
   "design": {
     "metadata": {
-      "title": "Design",
-      "description": "Branding, product, industrial, and graphic design by Miroslav Stibůrek — alongside a contemporary art practice."
+      "title": "Art & Design Portfolio",
+      "description": "Branding, product, and industrial design by abstract artist Miroslav Stibůrek — A' Design Award-winning work alongside a contemporary painting practice."
     },
     "eyebrow": "Design",
     "title": "Branding, product, and visual design",
@@ -195,12 +195,12 @@
   },
   "blog": {
     "metadata": {
-      "title": "Journal",
-      "description": "Studio notes, exhibitions, commissions, and reflections from Miroslav Stibůrek — The Abstract Philosopher."
+      "title": "Artist Journal | Contemporary Abstract Art",
+      "description": "Studio notes, exhibitions, and reflections on contemporary abstract art by Barcelona artist Miroslav Stibůrek — The Abstract Philosopher."
     },
     "eyebrow": "Journal",
     "title": "The Abstract Philosopher",
-    "description": "Studio notes, exhibitions, commissions, and reflections — pulled from the living archive on miroslavo.com.",
+    "description": "Studio notes, exhibitions, and reflections on contemporary abstract art — from the living archive of Miroslavo.",
     "back": "All posts",
     "empty": "No posts found.",
     "postNotFound": "Post not found.",
@@ -215,8 +215,8 @@
   },
   "exhibitions": {
     "metadata": {
-      "title": "Exhibitions",
-      "description": "Selected exhibitions, live painting performances, workshops, and speaking events by Miroslav Stibůrek — in Spain, Czechia, and internationally."
+      "title": "Exhibitions & Live Painting",
+      "description": "Exhibitions, live painting performances, and workshops by contemporary abstract artist Miroslav Stibůrek — Barcelona, Czechia, and internationally."
     },
     "eyebrow": "Exhibitions",
     "title": "Exhibitions, performances & events",

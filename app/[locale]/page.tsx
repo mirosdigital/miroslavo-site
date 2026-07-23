@@ -30,6 +30,7 @@ export async function generateMetadata({
     title: t("title"),
     description: t("description"),
     path: "/",
+    absoluteTitle: true,
     ogImage: { url: "/art/dances-with-chaos.jpg", alt: t("ogAlt") },
   });
 }

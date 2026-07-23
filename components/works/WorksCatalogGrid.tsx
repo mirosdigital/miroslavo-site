@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/ui/Reveal";
+import { getArtAspectRatio } from "@/lib/art-image-dimensions";
 import { availableWorks } from "@/lib/data/available-works";
 import { formatPrice, inquireHref } from "@/lib/inquire";
 import { getTranslations } from "next-intl/server";
@@ -12,19 +13,23 @@ export default async function WorksCatalogGrid() {
     <div className="grid gap-x-8 gap-y-20 sm:grid-cols-2 lg:grid-cols-3 lg:gap-x-10 lg:gap-y-28">
       {availableWorks.map((work, index) => {
         const isSold = work.status === "sold";
+        const aspectRatio = getArtAspectRatio(work.image);
 
         return (
         <Reveal key={work.id} delay={index * 0.06}>
           <article className="group flex h-full flex-col">
-            <div className="relative aspect-[4/5] overflow-hidden bg-surface-muted">
+            <div
+              className="relative w-full overflow-hidden bg-surface-muted"
+              style={{ aspectRatio }}
+            >
               <Image
                 src={work.image}
                 alt={work.imageAlt}
                 fill
-                className={`object-cover transition-transform duration-[1.4s] ease-out ${
+                className={`object-contain transition-transform duration-[1.4s] ease-out ${
                   isSold
-                    ? "scale-[1.01] opacity-75 saturate-[0.85]"
-                    : "group-hover:scale-[1.015]"
+                    ? "opacity-75 saturate-[0.85]"
+                    : "group-hover:scale-[1.01]"
                 }`}
                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               />

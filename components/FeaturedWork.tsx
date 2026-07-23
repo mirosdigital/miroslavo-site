@@ -5,6 +5,7 @@ import Reveal from "@/components/ui/Reveal";
 import Section from "@/components/ui/Section";
 import SectionLabel from "@/components/ui/SectionLabel";
 import { artworks } from "@/lib/data/artworks";
+import { getArtAspectRatio } from "@/lib/art-image-dimensions";
 import { getSectionId, sectionHref } from "@/lib/i18n/paths";
 import { siteConfig } from "@/lib/site";
 import { getTranslations } from "next-intl/server";
@@ -52,12 +53,15 @@ export default async function FeaturedWork() {
         {featured ? (
           <Reveal delay={0.1} className="lg:col-span-8">
             <article className="group">
-              <div className="relative aspect-[2500/2053] overflow-hidden bg-surface-muted">
+              <div
+                className="relative w-full overflow-hidden bg-surface-muted"
+                style={{ aspectRatio: getArtAspectRatio(featured.image) }}
+              >
                 <Image
                   src={featured.image}
                   alt={featured.imageAlt}
                   fill
-                  className="object-contain transition-transform duration-[1.4s] ease-out group-hover:scale-[1.015]"
+                  className="object-contain transition-transform duration-[1.4s] ease-out group-hover:scale-[1.01]"
                   sizes="(max-width: 1024px) 100vw, 66vw"
                   priority
                 />
