@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "Miroslavo — Contemporary Abstract Artist | Original Paintings & Commissions",
-    "description": "Barcelona-based contemporary abstract artist Miroslav Stibůrek (Miroslavo). Original abstract paintings for sale, limited edition prints, and commissions — shipped worldwide.",
+    "description": "Contemporary abstract artist Miroslav Stibůrek (Miroslavo) — made in Barcelona. Original abstract paintings for sale, limited edition prints, and commissions — shipped worldwide.",
     "ogAlt": "Contemporary abstract art by Miroslavo — original paintings"
   },
   "common": {
@@ -23,9 +23,9 @@
     "inquire": "Inquire"
   },
   "hero": {
-    "eyebrow": "Contemporary abstract artist · Barcelona",
+    "eyebrow": "Contemporary abstract artist · Made in Barcelona",
     "title": "Colour, gesture, and intuitive form.",
-    "description": "Original abstract paintings, prints, and commissions by Miroslav Stibůrek — based in Barcelona.",
+    "description": "Original abstract paintings, prints, and commissions — a studio practice shaped by a decade in Barcelona.",
     "ctaPrimary": "View works",
     "ctaSecondary": "Inquire",
     "featuredWork": "Dances with Chaos"
@@ -79,7 +79,7 @@
   "practice": {
     "eyebrow": "What I offer",
     "title": "Art, design, and marketing",
-    "description": "Based in Europe, the studio works remotely and on selected projects worldwide — from original paintings and design commissions to digital strategy and marketing at miros.digital.",
+    "description": "The studio works remotely and on selected projects worldwide — from original paintings and design commissions to digital strategy and marketing at miros.digital.",
     "offerings": {
       "art": {
         "title": "Art",
@@ -105,9 +105,9 @@
     "eyebrow": "The artist",
     "title": "Miroslav Stibůrek",
     "quote": "True beauty and meaning lies in authenticity.",
-    "description": "Born in Benešov, Czech Republic, Miroslav Stibůrek — also known as Miroslavo — is a contemporary artist, designer, and creative strategist. Best known for expressive abstract paintings, his work explores movement, form, colour, and emotion through a distinctive visual language. Paintings are held in private collections across Czechia, Spain, Mexico, England, and the United States.",
-    "description2": "After living in Czechia and England, he settled in Barcelona in 2016, where painting remains at the centre of his practice. He has exhibited internationally — including a solo museum exhibition — and co-founded Miroslavo Art Gallery in 2024. Through colour, gesture, and playful symbolism, the work reflects themes of identity, aliveness, and the tension between structure and freedom.",
-    "location": "Barcelona · Europe · Commissions worldwide",
+    "description": "Born in Benešov, made in Barcelona — Miroslav Stibůrek (also known as Miroslavo) is a contemporary artist, designer, and creative strategist. Best known for expressive abstract paintings, his work explores movement, form, colour, and emotion through a distinctive visual language. Paintings are held in private collections across Czechia, Spain, Mexico, England, and the United States.",
+    "description2": "A decade in Barcelona shaped the work; painting remains at the centre of the practice. He has exhibited internationally — including a solo museum exhibition — and co-founded Miroslavo Art Gallery in Benešov (2024). Through colour, gesture, and playful symbolism, the work reflects themes of identity, aliveness, and the tension between structure and freedom.",
+    "location": "Made in Barcelona · Europe · Commissions worldwide",
     "portraitAlt": "Miroslav Stibůrek — contemporary artist and designer",
     "cta": "Get in touch",
     "exhibitionsCta": "View exhibitions"
@@ -196,7 +196,7 @@
   "blog": {
     "metadata": {
       "title": "Artist Journal | Contemporary Abstract Art",
-      "description": "Studio notes, exhibitions, and reflections on contemporary abstract art by Barcelona artist Miroslav Stibůrek — The Abstract Philosopher."
+      "description": "Studio notes, exhibitions, and reflections on contemporary abstract art by Miroslav Stibůrek — The Abstract Philosopher, made in Barcelona."
     },
     "eyebrow": "Journal",
     "title": "The Abstract Philosopher",

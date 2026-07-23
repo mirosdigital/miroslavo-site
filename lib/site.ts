@@ -2,7 +2,7 @@ export const siteConfig = {
   name: "Miroslavo",
   title: "Miroslavo — Contemporary Abstract Artist | Original Paintings & Commissions",
   description:
-    "Barcelona-based contemporary abstract artist Miroslav Stibůrek (Miroslavo). Original abstract paintings for sale, limited edition prints, and commissions — shipped worldwide.",
+    "Contemporary abstract artist Miroslav Stibůrek (Miroslavo) — made in Barcelona. Original abstract paintings for sale, limited edition prints, and commissions — shipped worldwide.",
   url: "https://www.miroslavo.com",
   locale: "en_US",
   email: "hola@miroslavo.com",
