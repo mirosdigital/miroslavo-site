@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Button from "@/components/ui/Button";
 import Container from "@/components/ui/Container";
+import InstagramLink from "@/components/InstagramLink";
 import SiteLogo from "@/components/SiteLogo";
 import ThemeToggle from "@/components/ThemeToggle";
 import { Link, usePathname } from "@/i18n/navigation";
@@ -114,6 +115,7 @@ export default function Navbar() {
           </nav>
 
           <div className="flex shrink-0 items-center justify-end gap-4 sm:gap-5">
+            <InstagramLink label={t("instagram")} />
             <ThemeToggle className="hidden sm:inline-flex" />
             <Button
               href={`mailto:${siteConfig.email}`}
@@ -175,7 +177,10 @@ export default function Navbar() {
               )}
             </div>
             <div className="mt-10 flex items-center justify-between gap-4 border-t border-border pt-8">
-              <ThemeToggle />
+              <div className="flex items-center gap-5">
+                <InstagramLink label={t("instagram")} />
+                <ThemeToggle />
+              </div>
               <Button href={`mailto:${siteConfig.email}`} variant="secondary">
                 {t("inquire")}
               </Button>
