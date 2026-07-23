@@ -38,7 +38,7 @@ export const availableWorks: AvailableWork[] = [
     category: "painting",
     image: "/art/queens-landing.jpg",
     imageAlt: "Queen's Landing — abstract painting by Miroslavo",
-    price: 600,
+    price: 400,
     medium: "Acrylic on canvas",
     size: "46 × 38 cm",
   },
