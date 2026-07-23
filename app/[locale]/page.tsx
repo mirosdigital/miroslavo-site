@@ -8,6 +8,7 @@ import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import Practice from "@/components/Practice";
 import PressProof from "@/components/PressProof";
+import Testimonials from "@/components/Testimonials";
 import { routing } from "@/i18n/routing";
 import { createPageMetadata } from "@/lib/metadata";
 import { getTranslations, setRequestLocale } from "next-intl/server";
@@ -47,6 +48,7 @@ export default async function HomePage({ params }: HomePageProps) {
         <Practice />
         <FeaturedWork />
         <PressProof />
+        <Testimonials />
         <ClientLocations />
         <About />
         <Contact />

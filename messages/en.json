@@ -116,6 +116,13 @@
   "pressProof": {
     "asSeenIn": "As seen in"
   },
+  "testimonials": {
+    "eyebrow": "Clients & collectors",
+    "title": "What clients say",
+    "description": "100% recommend on Facebook — from dream commissions and signed prints to collectors worldwide.",
+    "facebookCta": "All reviews on Facebook →",
+    "googleCta": "Google reviews →"
+  },
   "clientLocations": {
     "title": "Where clients are based"
   },
