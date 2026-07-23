@@ -34,6 +34,30 @@ export const testimonials: Testimonial[] = [
     context: "Original painting · shipped from Barcelona",
   },
   {
+    id: "alexander-volkov",
+    quote:
+      "I have been following his career for quite some time, and recently purchased one of his works. The piece is great — it brings joy into our home, works beautifully as decoration, and has true artistic value. We are very happy and hope to expand our collection with another piece later in life.",
+    author: "Alexander Volkov",
+    company: "Prague",
+    context: "Original painting · Prague",
+  },
+  {
+    id: "jeannette-placencia",
+    quote:
+      "Amazing painting! I had no problem receiving the piece and communicating with the artist. He's very open with his craft — I can honestly say he's a breath of fresh air.",
+    author: "Jeannette Placencia",
+    company: "New York",
+    context: "Original painting · New York",
+  },
+  {
+    id: "maria-dominguez",
+    quote:
+      "Club 23 Business Club Barcelona is delighted to feature the work of Miroslavo — a multidisciplinary, energetic, and highly creative artist. His work transports us to palpable vitality and optimism from the very first moment. Vibrant colours, positive energy, and balanced composition — qualities sorely needed in these times.",
+    author: "Maria Jose Dominguez Beomont",
+    company: "Club 23 Barcelona",
+    context: "Collection · Barcelona",
+  },
+  {
     id: "pharmacie-figuerolles",
     quote:
       "I contacted Miro to create a logo for the pharmacy — modern, but always easily identifiable for patients. He created a new visual identity with different lines playing with shades of green, while keeping the identity intact. Very responsive and helpful — he understood what I was looking for in a few exchanges and created the logo very quickly.",

@@ -38,13 +38,6 @@ export const artworks: Artwork[] = [
     imageAlt: "Luchador — abstract painting by Miroslavo",
   },
   {
-    id: "contra-nature",
-    title: "Contra Nature",
-    category: "painting",
-    image: "/art/contra-nature.jpg",
-    imageAlt: "Contra Nature — green and gold abstract painting by Miroslavo",
-  },
-  {
     id: "spread-your-wings",
     title: "Spread Your Wings and Fly",
     category: "painting",
