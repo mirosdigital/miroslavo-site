@@ -1,12 +1,13 @@
-import { siteConfig } from "@/lib/site";
+const CMS_ORIGIN = "https://cms.miroslavo.com";
 
 export function getWordPressOrigin(): string {
   const raw = process.env.WORDPRESS_API_URL?.trim();
-  if (!raw) {
-    return siteConfig.url;
+  if (raw) {
+    return raw.replace(/\/wp-json\/?.*$/i, "").replace(/\/$/, "");
   }
 
-  return raw.replace(/\/wp-json\/?.*$/i, "").replace(/\/$/, "");
+  // Headless CMS — never default to www (may be served by Next.js on Vercel).
+  return CMS_ORIGIN;
 }
 
 function getWordPressApiBase(): string {
@@ -196,16 +197,14 @@ export function stripHtml(html: string): string {
 }
 
 async function fetchWp(path: string, init?: RequestInit): Promise<Response> {
-  const response = await fetch(wpApiUrl(path), {
+  return fetch(wpApiUrl(path), {
     ...init,
     headers: {
       ...WP_FETCH_HEADERS,
       ...init?.headers,
     },
-    next: { revalidate: BLOG_REVALIDATE_SECONDS },
+    cache: "no-store",
   });
-
-  return response;
 }
 
 function emptyPostsResult(): WordPressPostsResult {
@@ -248,13 +247,13 @@ export async function getWordPressPost(
   const baseQuery = `/posts?slug=${encodeURIComponent(slug)}`;
   let response = await fetch(wpApiUrl(`${baseQuery}&_embed=wp:featuredmedia`), {
     headers: WP_FETCH_HEADERS,
-    next: { revalidate: BLOG_REVALIDATE_SECONDS },
+    cache: "no-store",
   });
 
   if (response.status === 403 || response.status === 401) {
     response = await fetch(wpApiUrl(baseQuery), {
       headers: WP_FETCH_HEADERS,
-      next: { revalidate: BLOG_REVALIDATE_SECONDS },
+      cache: "no-store",
     });
   }
 

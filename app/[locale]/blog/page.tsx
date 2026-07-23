@@ -59,18 +59,20 @@ export default async function BlogPage({ params }: BlogPageProps) {
         </Section>
 
         <Section wide padTop="none" className="bg-background pb-24 lg:pb-32">
-          <BlogFeed
-            initialPosts={posts}
-            total={total}
-            totalPages={totalPages}
-            labels={{
-              loadMore: t("pagination.loadMore"),
-              loading: t("pagination.loading"),
-              showing: t("pagination.showing"),
-              loadingInitial: t("pagination.loadingInitial"),
-              empty: t("empty"),
-            }}
-          />
+          {posts.length > 0 ? (
+            <BlogFeed
+              initialPosts={posts}
+              total={total}
+              totalPages={totalPages}
+              labels={{
+                loadMore: t("pagination.loadMore"),
+                loading: t("pagination.loading"),
+                showing: t("pagination.showing"),
+              }}
+            />
+          ) : (
+            <p className="text-sm font-light text-muted">{t("empty")}</p>
+          )}
         </Section>
       </main>
       <Footer />
